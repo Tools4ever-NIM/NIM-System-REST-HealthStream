@@ -1,0 +1,121 @@
+{
+    "schema": {
+        "crud_objects": {
+            "Roles": {
+                "operations": {
+                    "RolesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/learning/v1/rolemanagement/organization/{org_id}/Roles"
+                        },
+                        "processing_options": {
+                            "output_field": "roles"
+                        }
+                    }
+                },
+                "key": "roleId",
+                "resources": {
+                    "roleId": "string*",
+                    "roleName": "string*",
+                    "institutionId": "string*",
+                    "institutionCode": "string*",
+                    "institutionName": "string*",
+                    "shareWithChildrenInstitutions": "string*"
+                }
+                
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "https://{tenant_id}",
+            "get": {
+                "pagination":{
+                    "mode":"generic",
+                    "zero_based": false,
+                    "totalAttribute": "totalRecords",
+                    "params":{
+                        "pageNumber":"{page_number}",
+                        "pageSize":"{page_size}"
+                    }
+                }
+            },
+            "authentication": "client_credentials",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/learning/v1/rolemanagement/organization/{org_id}/Roles?pageNumber=1&pageSize=1"
+            },
+            "socket_timeout": 3600000,
+            "accept": "application/json",
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 429,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 12,
+                        "waitTime": 60
+                    }
+                },
+                {
+                    "type": "statusCode",
+                    "statusCode": 500,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 12,
+                        "waitTime": 60
+                    }
+                },
+                {
+                    "type": "connectionError"
+                }
+            ]
+        },
+         "authOptions": {
+            "authUrl": "https://auth.hstream.net/oauth2/token",
+            "type": "client-credentials"
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Tenent URL:",
+                "value": "api.hstream.com",
+                "required": true,
+                "order": 1
+            },
+            {
+                "name": "client_id",
+                "type": "textbox",
+                "label": "Client Key",
+                "required": true,
+                "order": 2
+            },
+            {
+                "name": "client_secret",
+                "type": "textbox",
+                "label": "Client Secret",
+                "required": true,
+                "order": 3
+            },
+            {
+                "name": "org_id",
+                "type": "textbox",
+                "label": "Org Id",
+                "value": "",
+                "required": true,
+                "order": 4
+            },
+            {
+                "name": "page_size",
+                "type": "textbox",
+                "label": "Page Size:",
+                "value": "500",
+                "required": true,
+                "order": 5
+            }
+        ]
+    }
+}
