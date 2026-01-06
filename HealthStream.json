@@ -22,6 +22,50 @@
                     "institutionName": "string*",
                     "shareWithChildrenInstitutions": "string*"
                 }
+            },
+            "JobTitles": {
+                "operations": {
+                    "JobTitlesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/learning/v1/institutionmanagement/organization/{org_id}/Institution/{institution_id}/JobTitles"
+                        },
+                        "processing_options": {
+                            "output_field": "jobTitleDetails"
+                        }
+                    }
+                },
+                "key": "jobTitleId",
+                "resources": {
+                    "jobTitleId": "string*",
+                    "jobTitleCode": "string*",
+                    "jobTitleName": "string*",
+                    "jobCategoryId": "string*",
+                    "jobCategoryName": "string*",
+                    "ddctJobCategory": "string*",
+                    "isStudentDefault": "string*"
+                }
+                
+            },
+            "JobFunctions": {
+                "operations": {
+                    "JobFunctionsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/learning/v1/organizationmanagement/organization/{org_id}/JobFunction/List"
+                        },
+                        "processing_options": {
+                            "output_field": "jobFunctionDetails"
+                        }
+                    }
+                },
+                "key": "jobFunctionId",
+                "resources": {
+                    "jobFunctionId": "string*",
+                    "jobFunctionName": "string*",
+                    "organizationId": "string*",
+                    "isActive": "string*"
+                }
                 
             }
         }
@@ -109,12 +153,20 @@
                 "order": 4
             },
             {
+                "name": "institution_id",
+                "type": "textbox",
+                "label": "Institution Id",
+                "value": "",
+                "required": true,
+                "order": 5
+            },
+            {
                 "name": "page_size",
                 "type": "textbox",
                 "label": "Page Size:",
                 "value": "500",
                 "required": true,
-                "order": 5
+                "order": 6
             }
         ]
     }
