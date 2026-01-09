@@ -67,7 +67,191 @@
                     "isActive": "string*"
                 }
                 
+            },
+            "SearchParameters_Users": {
+                "operations": {
+                    "SearchParameters_UsersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "constant",
+                            "values": [
+                                {
+                                    "firstName": "a"
+                                },
+                                {
+                                    "firstName": "b"
+                                },
+                                {
+                                    "firstName": "c"
+                                },
+                                {
+                                    "firstName": "d"
+                                },
+                                {
+                                    "firstName": "e"
+                                },
+                                {
+                                    "firstName": "f"
+                                },
+                                {
+                                    "firstName": "g"
+                                },
+                                {
+                                    "firstName": "h"
+                                },
+                                {
+                                    "firstName": "i"
+                                },
+                                {
+                                    "firstName": "j"
+                                },
+                                {
+                                    "firstName": "k"
+                                },
+                                {
+                                    "firstName": "l"
+                                },
+                                {
+                                    "firstName": "m"
+                                },
+                                {
+                                    "firstName": "n"
+                                },
+                                {
+                                    "firstName": "o"
+                                },
+                                {
+                                    "firstName": "p"
+                                },
+                                {
+                                    "firstName": "q"
+                                },
+                                {
+                                    "firstName": "r"
+                                },
+                                {
+                                    "firstName": "s"
+                                },
+                                {
+                                    "firstName": "t"
+                                },
+                                {
+                                    "firstName": "u"
+                                },
+                                {
+                                    "firstName": "v"
+                                },
+                                {
+                                    "firstName": "w"
+                                },
+                                {
+                                    "firstName": "x"
+                                },
+                                {
+                                    "firstName": "y"
+                                },
+                                {
+                                    "firstName": "z"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "key": "firstName",
+                "resources": {
+                    "firstName": "string*"
+                }
+            },
+            "Students": {
+                "operations": {
+                    "StudentsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Users_students",
+                            "iterator": "studentid",
+                            "path": "/learning/v1/usermanagement/organization/{org_id}/student/{iterator}"
+                        },
+                        "processing_options": {
+                            "output_field": null
+                        }
+                    }
+                },
+                "key": "studentId",
+                "resources": {
+                    "institutionId": "string*",
+                    "userId": "string*",
+                    "studentId": "string*",
+                    "departmentId": "string*",
+                    "userName": "string*",
+                    "firstName": "string*",
+                    "middleName": "string*",
+                    "lastName": "string*",
+                    "address": {
+                        "address1": "_:string*",
+                        "address2": "_:string*",
+                        "city": "_:string*",
+                        "stateId": "_:string*",
+                        "countryId": "_:string*",
+                        "zipCode": "_:string*",
+                        "zipCodeExtension": "_:string*",
+                        "phoneNumber": "_:string*",
+                        "phoneNumberExt": "_:string*"
+                    },
+                    "emailAddress": "string*",
+                    "timeZoneId": "string*",
+                    "preferredCultureCode": "string*",
+                    "isActive": "boolean*",
+                    "hireDate": "string*",
+                    "activeDate": "string*",
+                    "jobTitleId": "string*",
+                    "roleIDs": ["string*"],
+                    "supervisorUserId": "string*",
+                    "customField1Value": "string*",
+                    "customField2Value": "string*",
+                    "customField3Value": "string*",
+                    "customField4Value": "string*"
+                }
+            },
+            "Users": {
+                "operations": {
+                    "UsersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "SearchParameters_Users",
+                            "iterator": "firstName",
+                            "path": "/learning/v1/usermanagement/organization/{org_id}/user/list?FirstName={iterator}"
+                        },
+                        "processing_options": {
+                            "output_field": "users"
+                        }
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "username": "string*",
+                    "firstName": "string*",
+                    "lastName": "string*",
+                    "middleName": "string*",
+                    "email": "string*",
+                    "userNationalProviderIdentifier": "string*",
+                    "students": [
+                        {
+                        "departmentId": "string*",
+                        "departmentName": "string*",
+                        "managerName": "string*",
+                        "managerUserId": "string*",
+                        "studentId": "string*",
+                        "institutionId": "string*",
+                        "institutionName": "string*",
+                        "isActive": "boolean*"
+                        }
+                    ]
+                }
             }
+
         }
     },
     "rest": {
