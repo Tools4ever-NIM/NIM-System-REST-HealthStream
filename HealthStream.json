@@ -1,356 +1,385 @@
 {
-  "schema": {
-    "crud_objects": {
-      "Roles": {
-        "operations": {
-          "RolesList": {
-            "method": "get",
-            "call": {
-              "path": "/learning/v1/rolemanagement/organization/{org_id}/Roles"
-            },
-            "processing_options": {
-              "output_field": "roles"
-            }
-          }
-        },
-        "key": "roleId",
-        "resources": {
-          "roleId": "string*",
-          "roleName": "string*",
-          "institutionId": "string*",
-          "institutionCode": "string*",
-          "institutionName": "string*",
-          "shareWithChildrenInstitutions": "string*"
-        }
-      },
-      "JobTitles": {
-        "operations": {
-          "JobTitlesList": {
-            "method": "get",
-            "call": {
-              "path": "/learning/v1/institutionmanagement/organization/{org_id}/Institution/{institution_id}/JobTitles"
-            },
-            "processing_options": {
-              "output_field": "jobTitleDetails"
-            }
-          }
-        },
-        "key": "jobTitleId",
-        "resources": {
-          "jobTitleId": "string*",
-          "jobTitleCode": "string*",
-          "jobTitleName": "string*",
-          "jobCategoryId": "string*",
-          "jobCategoryName": "string*",
-          "ddctJobCategory": "string*",
-          "isStudentDefault": "string*"
-        }
-      },
-      "JobFunctions": {
-        "operations": {
-          "JobFunctionsList": {
-            "method": "get",
-            "call": {
-              "path": "/learning/v1/organizationmanagement/organization/{org_id}/JobFunction/List"
-            },
-            "processing_options": {
-              "output_field": "jobFunctionDetails"
-            }
-          }
-        },
-        "key": "jobFunctionId",
-        "resources": {
-          "jobFunctionId": "string*",
-          "jobFunctionName": "string*",
-          "organizationId": "string*",
-          "isActive": "string*"
-        }
-      },
-      "SearchParameters_Users": {
-        "operations": {
-          "SearchParameters_UsersList": {
-            "method": "get",
-            "call": {
-              "mode": "constant",
-              "values": [
-                {
-                  "firstName": "a"
+    "schema": {
+        "crud_objects": {
+            "Roles": {
+                "operations": {
+                    "RolesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/learning/v1/rolemanagement/organization/{org_id}/Roles"
+                        },
+                        "processing_options": {
+                            "output_field": "roles"
+                        }
+                    }
                 },
-                {
-                  "firstName": "b"
-                },
-                {
-                  "firstName": "c"
-                },
-                {
-                  "firstName": "d"
-                },
-                {
-                  "firstName": "e"
-                },
-                {
-                  "firstName": "f"
-                },
-                {
-                  "firstName": "g"
-                },
-                {
-                  "firstName": "h"
-                },
-                {
-                  "firstName": "i"
-                },
-                {
-                  "firstName": "j"
-                },
-                {
-                  "firstName": "k"
-                },
-                {
-                  "firstName": "l"
-                },
-                {
-                  "firstName": "m"
-                },
-                {
-                  "firstName": "n"
-                },
-                {
-                  "firstName": "o"
-                },
-                {
-                  "firstName": "p"
-                },
-                {
-                  "firstName": "q"
-                },
-                {
-                  "firstName": "r"
-                },
-                {
-                  "firstName": "s"
-                },
-                {
-                  "firstName": "t"
-                },
-                {
-                  "firstName": "u"
-                },
-                {
-                  "firstName": "v"
-                },
-                {
-                  "firstName": "w"
-                },
-                {
-                  "firstName": "x"
-                },
-                {
-                  "firstName": "y"
-                },
-                {
-                  "firstName": "z"
+                "key": "roleId",
+                "resources": {
+                    "roleId": "string*",
+                    "roleName": "string*",
+                    "institutionId": "string*",
+                    "institutionCode": "string*",
+                    "institutionName": "string*",
+                    "shareWithChildrenInstitutions": "string*"
                 }
-              ]
-            }
-          }
-        },
-        "key": "firstName",
-        "resources": {
-          "firstName": "string*"
-        }
-      },
-      "Students": {
-        "operations": {
-          "StudentsList": {
-            "method": "get",
-            "call": {
-              "mode": "iteration",
-              "table": "Users_students",
-              "iterator": "studentId",
-              "path": "/learning/v1/usermanagement/organization/{org_id}/student/{iterator}"
             },
-            "maxSessionCount": 20,
-            "processing_options": {
-              "output_field": null
-            }
-          }
-        },
-        "key": "studentId",
-        "resources": {
-          "institutionId": "string*",
-          "userId": "string*",
-          "studentId": "string*",
-          "departmentId": "string*",
-          "userName": "string*",
-          "firstName": "string*",
-          "middleName": "string*",
-          "lastName": "string*",
-          "address": {
-            "address1": "_:string*",
-            "address2": "_:string*",
-            "city": "_:string*",
-            "stateId": "_:string*",
-            "countryId": "_:string*",
-            "zipCode": "_:string*",
-            "zipCodeExtension": "_:string*",
-            "phoneNumber": "_:string*",
-            "phoneNumberExt": "_:string*"
-          },
-          "emailAddress": "string*",
-          "timeZoneId": "string*",
-          "preferredCultureCode": "string*",
-          "isActive": "boolean*",
-          "hireDate": "string*",
-          "activeDate": "string*",
-          "jobTitleId": "string*",
-          "roleIDs": ["string*"],
-          "supervisorUserId": "string*",
-          "customField1Value": "string*",
-          "customField2Value": "string*",
-          "customField3Value": "string*",
-          "customField4Value": "string*"
-        }
-      },
-      "Users": {
-        "operations": {
-          "UsersList": {
-            "method": "get",
-            "call": {
-              "mode": "iteration",
-              "table": "SearchParameters_Users",
-              "iterator": "firstName",
-              "path": "/learning/v1/usermanagement/organization/{org_id}/user/list?FirstName={iterator}"
+            "JobTitles": {
+                "operations": {
+                    "JobTitlesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/learning/v1/institutionmanagement/organization/{org_id}/Institution/{institution_id}/JobTitles"
+                        },
+                        "processing_options": {
+                            "output_field": "jobTitleDetails"
+                        }
+                    }
+                },
+                "key": "jobTitleId",
+                "resources": {
+                    "jobTitleId": "string*",
+                    "jobTitleCode": "string*",
+                    "jobTitleName": "string*",
+                    "jobCategoryId": "string*",
+                    "jobCategoryName": "string*",
+                    "ddctJobCategory": "string*",
+                    "isStudentDefault": "string*"
+                }
             },
-            "maxSessionCount": 20,
-            "processing_options": {
-              "output_field": "users"
+            "JobFunctions": {
+                "operations": {
+                    "JobFunctionsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/learning/v1/organizationmanagement/organization/{org_id}/JobFunction/List"
+                        },
+                        "processing_options": {
+                            "output_field": "jobFunctionDetails"
+                        }
+                    }
+                },
+                "key": "jobFunctionId",
+                "resources": {
+                    "jobFunctionId": "string*",
+                    "jobFunctionName": "string*",
+                    "organizationId": "string*",
+                    "isActive": "string*"
+                }
+            },
+            "SearchParameters_Users": {
+                "operations": {
+                    "SearchParameters_UsersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "constant",
+                            "values": [
+                                {
+                                    "firstName": "a"
+                                },
+                                {
+                                    "firstName": "b"
+                                },
+                                {
+                                    "firstName": "c"
+                                },
+                                {
+                                    "firstName": "d"
+                                },
+                                {
+                                    "firstName": "e"
+                                },
+                                {
+                                    "firstName": "f"
+                                },
+                                {
+                                    "firstName": "g"
+                                },
+                                {
+                                    "firstName": "h"
+                                },
+                                {
+                                    "firstName": "i"
+                                },
+                                {
+                                    "firstName": "j"
+                                },
+                                {
+                                    "firstName": "k"
+                                },
+                                {
+                                    "firstName": "l"
+                                },
+                                {
+                                    "firstName": "m"
+                                },
+                                {
+                                    "firstName": "n"
+                                },
+                                {
+                                    "firstName": "o"
+                                },
+                                {
+                                    "firstName": "p"
+                                },
+                                {
+                                    "firstName": "q"
+                                },
+                                {
+                                    "firstName": "r"
+                                },
+                                {
+                                    "firstName": "s"
+                                },
+                                {
+                                    "firstName": "t"
+                                },
+                                {
+                                    "firstName": "u"
+                                },
+                                {
+                                    "firstName": "v"
+                                },
+                                {
+                                    "firstName": "w"
+                                },
+                                {
+                                    "firstName": "x"
+                                },
+                                {
+                                    "firstName": "y"
+                                },
+                                {
+                                    "firstName": "z"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "key": "firstName",
+                "resources": {
+                    "firstName": "string*"
+                }
+            },
+            "Students": {
+                "operations": {
+                    "StudentsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Users_students",
+                            "iterator": "studentId",
+                            "path": "/learning/v1/usermanagement/organization/{org_id}/student/{iterator}"
+                        },
+                        "maxSessionCount": 20,
+                        "processing_options": {
+                            "output_field": null
+                        }
+                    }
+                },
+                "key": "studentId",
+                "resources": {
+                    "institutionId": "string*",
+                    "userId": "string*",
+                    "studentId": "string*",
+                    "departmentId": "string*",
+                    "userName": "string*",
+                    "firstName": "string*",
+                    "middleName": "string*",
+                    "lastName": "string*",
+                    "address": {
+                        "address1": "_:string*",
+                        "address2": "_:string*",
+                        "city": "_:string*",
+                        "stateId": "_:string*",
+                        "countryId": "_:string*",
+                        "zipCode": "_:string*",
+                        "zipCodeExtension": "_:string*",
+                        "phoneNumber": "_:string*",
+                        "phoneNumberExt": "_:string*"
+                    },
+                    "emailAddress": "string*",
+                    "timeZoneId": "string*",
+                    "preferredCultureCode": "string*",
+                    "isActive": "boolean*",
+                    "hireDate": "string*",
+                    "activeDate": "string*",
+                    "jobTitleId": "string*",
+                    "roleIDs": [
+                        "string*"
+                    ],
+                    "supervisorUserId": "string*",
+                    "customField1Value": "string*",
+                    "customField2Value": "string*",
+                    "customField3Value": "string*",
+                    "customField4Value": "string*"
+                }
+            },
+            "Students_JobFunctions": {
+                "operations": {
+                    "StudentsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Users_students",
+                            "iterator": "studentId",
+                            "path": "/learning/v1/usermanagement/organization/{org_id}/student/{iterator}/jobfunction/list",
+                            "base": {
+                                "studentId": "{iterator}"
+                            }
+                        },
+                        "maxSessionCount": 20,
+                        "processing_options": {
+                            "output_field": "jobFunctions"
+                        }
+                    }
+                },
+                "key": "studentId",
+                "resources": {
+                    "studentId": "string*",
+                    "jobFunctionId": "string*",
+                    "jobFunctionName": "string*",
+                    "jobFunctionStartDate": "string*"
+                }
+            },
+            "Users": {
+                "operations": {
+                    "UsersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "SearchParameters_Users",
+                            "iterator": "firstName",
+                            "path": "/learning/v1/usermanagement/organization/{org_id}/user/list?FirstName={iterator}"
+                        },
+                        "maxSessionCount": 20,
+                        "processing_options": {
+                            "output_field": "users"
+                        }
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "username": "string*",
+                    "firstName": "string*",
+                    "lastName": "string*",
+                    "middleName": "string*",
+                    "email": "string*",
+                    "userNationalProviderIdentifier": "string*",
+                    "students": [
+                        {
+                            "departmentId": "string*",
+                            "departmentName": "string*",
+                            "managerName": "string*",
+                            "managerUserId": "string*",
+                            "studentId": "string*",
+                            "institutionId": "string*",
+                            "institutionName": "string*",
+                            "isActive": "boolean*"
+                        }
+                    ]
+                }
             }
-          }
-        },
-        "key": "id",
-        "resources": {
-          "id": "string*",
-          "username": "string*",
-          "firstName": "string*",
-          "lastName": "string*",
-          "middleName": "string*",
-          "email": "string*",
-          "userNationalProviderIdentifier": "string*",
-          "students": [
-            {
-              "departmentId": "string*",
-              "departmentName": "string*",
-              "managerName": "string*",
-              "managerUserId": "string*",
-              "studentId": "string*",
-              "institutionId": "string*",
-              "institutionName": "string*",
-              "isActive": "boolean*"
-            }
-          ]
         }
-      }
-    }
-  },
-  "rest": {
-    "config": {
-      "baseUrl": "https://{tenant_id}",
-      "get": {
-        "pagination": {
-          "mode": "generic",
-          "zero_based": false,
-          "totalAttribute": "totalRecords",
-          "params": {
-            "pageNumber": "{page_number}",
-            "pageSize": "{page_size}"
-          }
-        }
-      },
-      "authentication": "client_credentials",
-      "call_handling": "generic",
-      "test_connection": {
-        "url": "/learning/v1/rolemanagement/organization/{org_id}/Roles?pageNumber=1&pageSize=1"
-      },
-      "socket_timeout": 3600000,
-      "accept": "application/json",
-      "retry": [
-        {
-          "type": "statusCode",
-          "statusCode": 429,
-          "retry": {
-            "type": "simple",
-            "maxCount": 12,
-            "waitTime": 60
-          }
-        },
-        {
-          "type": "statusCode",
-          "statusCode": 500,
-          "retry": {
-            "type": "simple",
-            "maxCount": 12,
-            "waitTime": 60
-          }
-        },
-        {
-          "type": "connectionError"
-        }
-      ]
     },
-    "authOptions": {
-      "authUrl": "https://auth.hstream.net/oauth2/token",
-      "type": "client-credentials"
+    "rest": {
+        "config": {
+            "baseUrl": "https://{tenant_id}",
+            "get": {
+                "pagination": {
+                    "mode": "generic",
+                    "zero_based": false,
+                    "totalAttribute": "totalRecords",
+                    "params": {
+                        "pageNumber": "{page_number}",
+                        "pageSize": "{page_size}"
+                    }
+                }
+            },
+            "authentication": "client_credentials",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/learning/v1/rolemanagement/organization/{org_id}/Roles?pageNumber=1&pageSize=1"
+            },
+            "socket_timeout": 3600000,
+            "accept": "application/json",
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 429,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 12,
+                        "waitTime": 60
+                    }
+                },
+                {
+                    "type": "statusCode",
+                    "statusCode": 500,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 12,
+                        "waitTime": 60
+                    }
+                },
+                {
+                    "type": "connectionError"
+                }
+            ]
+        },
+        "authOptions": {
+            "authUrl": "https://auth.hstream.net/oauth2/token",
+            "type": "client-credentials"
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Tenent URL:",
+                "value": "api.hstream.com",
+                "required": true,
+                "order": 1
+            },
+            {
+                "name": "client_id",
+                "type": "textbox",
+                "label": "Client Key",
+                "required": true,
+                "order": 2
+            },
+            {
+                "name": "client_secret",
+                "type": "textbox",
+                "label": "Client Secret",
+                "required": true,
+                "order": 3
+            },
+            {
+                "name": "org_id",
+                "type": "textbox",
+                "label": "Org Id",
+                "value": "",
+                "required": true,
+                "order": 4
+            },
+            {
+                "name": "institution_id",
+                "type": "textbox",
+                "label": "Institution Id",
+                "value": "",
+                "required": true,
+                "order": 5
+            },
+            {
+                "name": "page_size",
+                "type": "textbox",
+                "label": "Page Size:",
+                "value": "500",
+                "required": true,
+                "order": 6
+            }
+        ]
     }
-  },
-  "connection": {
-    "items": [
-      {
-        "name": "tenant_id",
-        "type": "textbox",
-        "label": "Tenent URL:",
-        "value": "api.hstream.com",
-        "required": true,
-        "order": 1
-      },
-      {
-        "name": "client_id",
-        "type": "textbox",
-        "label": "Client Key",
-        "required": true,
-        "order": 2
-      },
-      {
-        "name": "client_secret",
-        "type": "textbox",
-        "label": "Client Secret",
-        "required": true,
-        "order": 3
-      },
-      {
-        "name": "org_id",
-        "type": "textbox",
-        "label": "Org Id",
-        "value": "",
-        "required": true,
-        "order": 4
-      },
-      {
-        "name": "institution_id",
-        "type": "textbox",
-        "label": "Institution Id",
-        "value": "",
-        "required": true,
-        "order": 5
-      },
-      {
-        "name": "page_size",
-        "type": "textbox",
-        "label": "Page Size:",
-        "value": "500",
-        "required": true,
-        "order": 6
-      }
-    ]
-  }
 }
