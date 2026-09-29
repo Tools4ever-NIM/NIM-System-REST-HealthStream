@@ -1,4 +1,7 @@
 # HealthStream
+
+Read the [HealthStream integration documentation](https://docs.nimsuite.com/en/integrations/healthstream) for connector details and related guides.
+
 <img src="https://github.com/user-attachments/assets/9c152909-0bd8-44de-abfb-9c3b902380ed" width="256px" />
 
 
